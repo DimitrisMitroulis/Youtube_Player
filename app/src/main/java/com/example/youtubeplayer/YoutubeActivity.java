@@ -13,6 +13,9 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+            static final String GOOGLE_API_KEY = "AIzaSyBnPlb7vh7tH-AyHSELwPduv8XxFM615Fk";
+            static final String YOUTUBE_VIDEO_ID = "ElpitAfkRS4";
+            static final String YOUTUBE_PLAYLIST = "PLXtTjtWmQhg1SsviTmKkWO5n0a_-T0bnD";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 //        layout.addView(button1);
 
         YouTubePlayerView player = new YouTubePlayerView(this);
-        player.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+        player.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));//instead of using predefined dp, use all the available space in the screen
         layout.addView(player);
     }
 
