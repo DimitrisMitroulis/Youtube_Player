@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -30,9 +31,12 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 //        button1.setText("Button Added");
 //        layout.addView(button1);
 
-        YouTubePlayerView player = new YouTubePlayerView(this);
-        player.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));//instead of using predefined dp, use all the available space in the screen
-        layout.addView(player);
+        YouTubePlayerView playerView = new YouTubePlayerView(this);
+        playerView.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));//instead of using predefined dp, use all the available space in the screen
+        layout.addView(playerView);
+        playerView.initialize(GOOGLE_API_KEY,this);
+
+
     }
 
     @Override
@@ -42,6 +46,15 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-//comment
+        final int REQUEST_CODE = 1;
+        if(youTubeInitializationResult.isUserRecoverableError()){
+            youTubeInitializationResult.getErrorDialog(this,REQUEST_CODE).show();
+
+        }else{
+            String errorMessage = String.format("There was an error initializing the YoutubePlayer (%1$s)",youTubeInitializationResult.toString());
+            Toast.makeText(this,errorMessage,Toast.LENGTH_LONG).show();
+        }
+
+
     }
 }
