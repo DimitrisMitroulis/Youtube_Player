@@ -57,4 +57,62 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 
 
     }
+
+    private YouTubePlayer.PlaybackEventListener playbackEventListener =  new YouTubePlayer.PlaybackEventListener() {
+        @Override
+        public void onPlaying() {
+            Toast.makeText(YoutubeActivity.this,"Good, video is playing ok",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onPaused() {
+            Toast.makeText(YoutubeActivity.this,"Video is paused ok",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onStopped() {
+
+        }
+
+        @Override
+        public void onBuffering(boolean b) {
+
+        }
+
+        @Override
+        public void onSeekTo(int i) {
+
+        }
+    };
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        @Override
+        public void onLoading() {
+
+        }
+
+        @Override
+        public void onLoaded(String s) {
+
+        }
+
+        @Override
+        public void onAdStarted() {
+            Toast.makeText(YoutubeActivity.this,"Money money money",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onVideoStarted() {
+
+        }
+
+        @Override
+        public void onVideoEnded() {
+
+        }
+
+        @Override
+        public void onError(YouTubePlayer.ErrorReason errorReason) {
+
+        }
+    };
 }
