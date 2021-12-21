@@ -26,15 +26,8 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
         ConstraintLayout layout = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_youtube, null);
         setContentView(layout);
 
-//        Button button1 = new Button(this);
-//        button1.setLayoutParams(new ConstraintLayout.LayoutParams(400,180));
-//        button1.setText("Button Added");
-//        layout.addView(button1);
 
-//        YouTubePlayerView playerView = new YouTubePlayerView(this);
-//        playerView.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));//instead of using predefined dp, use all the available space in the screen
-//        layout.addView(playerView);
-//        playerView.initialize(GOOGLE_API_KEY,this);
+        
 
         YouTubePlayerView playerView = new YouTubePlayerView(this);
         playerView.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));//instead of using predefined dp, use all the available space in the screen
